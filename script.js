@@ -10,19 +10,28 @@ const banner_image = document.querySelector(".app__image");
 
 const banner_titulo = document.querySelector(".app__title");
 
+const botoes = document.querySelectorAll(".app__card-button");
+
 foco_button.addEventListener("click", () => {
   alterarContexto("foco");
+  foco_button.classList.add("active");
 });
 
 curto_button.addEventListener("click", () => {
   alterarContexto("descanso-curto");
+  curto_button.classList.add("active");
 });
 
 longo_button.addEventListener("click", () => {
   alterarContexto("descanso-longo");
+  longo_button.classList.add("active");
 });
 
 function alterarContexto(contexto) {
+  botoes.forEach(function(contexto) {
+    contexto.classList.remove("active");
+  })
+
   html.setAttribute("data-contexto", contexto);
   banner_image.setAttribute("src", `/imagens/${contexto}.png`);
   switch (contexto) {
