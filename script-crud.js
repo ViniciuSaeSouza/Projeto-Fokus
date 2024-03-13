@@ -1,6 +1,9 @@
-//Encontra o botão 'Adicionar Tarefa'
-const btnAdicionarTarefa =  document.querySelector('.app__button--add-task');
+//Encontrar o botão 'Adicionar Tarefa'
+const btnAdicionarNovaTarefa = document.querySelector('.app__button--add-task');
+const formAdicionarTarefa = document.querySelector('.app__form-add-task');
+const textArea = document.querySelector('app__form-textarea');
 
-btnAdicionarTarefa.addEventListener('click', () => {
-    
+
+btnAdicionarNovaTarefa.addEventListener('click', () => {
+    formAdicionarTarefa.classList.toggle('hidden')
 })
