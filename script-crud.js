@@ -15,5 +15,6 @@ formAdicionarTarefa.addEventListener("submit", (evento) => {
     descricao: textArea.value,
   };
   listaDeTarefas.push(tarefa);
-  localStorage.setItem('tarefas', listaDeTarefas);
+//localStorage armezena apenas 'strings', utilizamos a API JSON.stringify para fazer uma 'parse' deste objeto.
+  localStorage.setItem('tarefas', JSON.stringify(listaDeTarefas));
 });
