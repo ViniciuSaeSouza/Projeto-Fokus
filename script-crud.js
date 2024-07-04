@@ -16,6 +16,8 @@ const btnCancelar = document.querySelector(".app__form-footer__button--cancel");
 
 const btnRemoverConcluidas = document.querySelector("#btn-remover-concluidas");
 
+const btnRemoverTodas = document.querySelector('#btn-remover-todas')
+
 const paragrafoDescricaotarefa = document.querySelector(
   ".app__section-active-task-description"
 );
@@ -132,10 +134,14 @@ document.addEventListener("FocoFinalizado", () => {
   }
 });
 
-btnRemoverConcluidas.addEventListener('click', ()=>{
-  const seletor = ".app__section-task-list-item-complete"
+const removerTarefas = (somenteCompletas) => {
+  const seletor = somenteCompletas ? ".app__section-task-list-item-complete": ".app__section-task-list-item"
   document.querySelectorAll(seletor).forEach(elemento => {
     elemento.remove()})
-  tarefas = tarefas.filter(tarefas => !tarefas.completa);
+  tarefas = somenteCompletas ? tarefas.filter(tarefas => !tarefas.completa) : [] ;
   atualizarTarefas()
-})
+}
+
+btnRemoverConcluidas.onclick = () => removerTarefas(true)
+
+btnRemoverTodas.onclick = () => removerTarefas()
